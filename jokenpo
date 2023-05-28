@@ -1,0 +1,32 @@
+import random
+
+def jogar():
+    print("Bem-vindo ao jogo Pedra, Papel, Tesoura!")
+    print("Escolha uma opção:")
+    print("1. Pedra")
+    print("2. Papel")
+    print("3. Tesoura")
+
+    escolha = int(input("Digite o número da sua escolha: "))
+    opcoes = ['Pedra', 'Papel', 'Tesoura']
+    escolha_jogador = opcoes[escolha - 1]
+
+    escolha_computador = random.choice(opcoes)
+
+    print("Você escolheu:", escolha_jogador)
+    print("O computador escolheu:", escolha_computador)
+
+    if escolha_jogador == escolha_computador:
+        print("Empate!")
+    elif (escolha_jogador == 'Pedra' and escolha_computador == 'Tesoura') or \
+            (escolha_jogador == 'Papel' and escolha_computador == 'Pedra') or \
+            (escolha_jogador == 'Tesoura' and escolha_computador == 'Papel'):
+        print("Parabéns! Você ganhou!")
+    else:
+        print("Você perdeu!")
+
+    jogar_novamente = input("Deseja jogar novamente? (s/n): ")
+    if jogar_novamente.lower() == 's':
+        jogar()
+
+jogar()
